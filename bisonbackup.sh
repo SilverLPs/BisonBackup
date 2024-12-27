@@ -50,8 +50,6 @@ load_plan() {
 process_task() {
     local section="$1"
     local task_path=""
-    local task_shell=""
-    local task_user=""
     local module=""
     local package=""
     local arguments=()
@@ -66,12 +64,6 @@ process_task() {
                 ;;
             TaskPath)
                 task_path="$value"
-                ;;
-            TaskShell)
-                task_shell="$value"
-                ;;
-            TaskUser)
-                task_user="$value"
                 ;;
             *)
                 arguments+=("$key=$value")
