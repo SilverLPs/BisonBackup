@@ -13,7 +13,7 @@ get_os_name() {
 }
 
 load_plan() {
-    ini_file="$(realpath $1)"
+    ini_file="$(realpath "$1")"
     local section=""
     local key=""
     local value=""
@@ -31,18 +31,19 @@ load_plan() {
                         PlanName="$value"
                         ;;
                     Path)
-                        PlanPath="$value"
+                        PlanPathArg="$value"
                         ;;
                     ModulePath)
-                        PlanModulePath="$(realpath $value)"
+                        PlanModulePath="$(realpath "$value")"
                         ;;
                 esac
             fi
         fi
     done < "$ini_file"
-    if [[ -z "$PlanPath" ]]; then
+    if [[ -z "$PlanPathArg" ]]; then
         PlanPath=$(pwd)
     else
+	PlanPath="$(realpath "$PlanPathArg")"
         cd "$PlanPath" || { echo "Error: The directory '$PlanPath' doesn't exist."; exit 1; }
     fi
 }
