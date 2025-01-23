@@ -14,7 +14,7 @@ BisonBackup is a lightweight and modular backup script framework. It acts as a s
 
 ---
 
-## 🖥️I Installation
+## 🖥️ Installation
 
 1. Clone the repository:
 ```bash
@@ -156,7 +156,7 @@ Contributions and issues reports are generally welcome! Please feel free to subm
 
 ---
 
-## ©️  License and Disclaimer
+## ©️ License and Disclaimer
 
 BisonBackup is licensed under the MIT License. See [LICENSE](LICENSE) for more details.
 
