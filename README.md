@@ -14,7 +14,7 @@ BisonBackup is a lightweight and modular backup script framework. It acts as a s
 
 ---
 
-## 🖥️Installation
+## 🖥️I Installation
 
 1. Clone the repository:
 ```bash
