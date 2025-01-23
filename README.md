@@ -14,7 +14,7 @@ BisonBackup is a lightweight and modular backup script framework. It acts as a s
 
 ---
 
-## Installation
+## 🖥️I Installation
 
 1. Clone the repository:
 ```bash
@@ -29,7 +29,7 @@ chmod +x bisonbackup.sh
 
 ---
 
-## Usage
+## ▶️  Usage
 
 ### Basic Command
 
@@ -53,7 +53,7 @@ It is advisable to redirect all output to a text file and retain it for future r
 
 ---
 
-## Backup Plan Structure
+## 🗒️ Backup Plan Structure
 
 A *Backup Plan* is a simple `.ini` file that defines the *Tasks* and *Modules* to be executed. It is structured into multiple sections:
 
@@ -92,7 +92,7 @@ ARGUMENTS="--myparameter=examplevalue"
 
 ---
 
-## Adding Modules
+## 🧩 Adding Modules
 
 *Modules* are external scripts that are organized into *Packages* and located in the directory specified by the `ModulePath` parameter in the *Backup Plan*. A *Package* name usually combines the source of the *Package* and the *Package* theme (e.g., `bisonbackup.general`). *Modules* are executed by BisonBackup based on the *Task* configuration defined in the *Backup Plan*.
 
@@ -140,7 +140,7 @@ For more details on the available module packages, refer to their respective doc
 
 ---
 
-## Logging
+## 📜 Logging
 
 BisonBackup outputs logs directly to the console, including:
 - Start and end timestamps for *Tasks*
@@ -150,13 +150,13 @@ BisonBackup outputs logs directly to the console, including:
 
 ---
 
-## Contributions and Issues
+## 🤝 Contributions and Issues
 
 Contributions and issues reports are generally welcome! Please feel free to submit issues or pull requests on the [GitHub repository](https://github.com/SilverLPs/BisonBackup). However, please be aware that this project is primarily developed for my personal purposes. While I share it in case it might be useful to others, I may not always be able to respond promptly to contributions or issue reports.
 
 ---
 
-## License and Disclaimer
+## ©️  icense and Disclaimer
 
 BisonBackup is licensed under the MIT License. See [LICENSE](LICENSE) for more details.
 
