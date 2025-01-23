@@ -1,29 +1,31 @@
-# BisonBackup
+![Logo](logo.webp)
 
 BisonBackup is a lightweight and modular backup script framework. It acts as a script runner that executes specified subscripts (called *Modules*) based on a user-defined configuration file (referred to as a *Backup Plan*).
 
 ---
 
-## Key Features
+## 🛠️ Key Features
 
 - **Modular Design:** Integrate existing or your own script *Modules* and run them with customized parameters.
 - **Backup Plans:** Centralized `.ini` configuration files to manage *Tasks* and their execution parameters.
-- **Dynamic Task Execution:** Automatically runs tasks with specified modules and paths.
+- **Dynamic Task Execution:** Automatically runs *Tasks* with specified *Modules* and paths.
 - **Full Portability:** BisonBackup is entirely written in pure Bash, requiring no additional dependencies. It runs seamlessly on any system that supports the Bash shell or its syntax.
-- **Simplicity by Design:** Transform any Bash script into a flexible module that receives parameters in a standardized argument format, as defined by the *Backup Plan*.
+- **Simplicity by Design:** Transform any Bash script into a flexible *Module* that receives parameters in a standardized argument format, as defined by the *Backup Plan*.
 
 ---
 
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/SilverLPs/BisonBackup.git
-   cd BisonBackup
-
+```bash
+git clone https://github.com/SilverLPs/BisonBackup.git
+cd BisonBackup
+```
 2. Make the script executable:
-   chmod +x bisonbackup.sh
-
-3. Create your own Backup Plan (see the **Backup Plan** sections for details). Ensure the specified *Modules* are stored in the directory specified by "ModulePath" in your *Backup Plan*.
+```bash
+chmod +x bisonbackup.sh
+```
+3. Create your own *Backup Plan* (see the **Backup Plan Structure** sections for details). Ensure the specified *Modules* are stored in the directory specified by "ModulePath" in your *Backup Plan*.
 
 ---
 
@@ -31,8 +33,10 @@ BisonBackup is a lightweight and modular backup script framework. It acts as a s
 
 ### Basic Command
 
-Run BisonBackup with your Backup Plan:
+Run BisonBackup with your *Backup Plan*:
+```bash
 bisonbackup.sh <path-to-backup-plan.ini>
+```
 
 ### Output
 
@@ -56,18 +60,19 @@ A *Backup Plan* is a simple `.ini` file that defines the *Tasks* and *Modules* t
 ### Plan Section
 The Plan Section specifies the overall configuration for the *Backup Plan*. This section must appear at the top of the configuration file and is identified by `[Plan]` in brackets. Each *Backup Plan* requires a unique Plan Section.
 
-- **Name**: The name of the Backup Plan.
-- **Path**: The working directory for tasks. If omitted, defaults to the current directory.
-- **ModulePath**: The directory where task modules are located.
+- **Name**: The name of the *Backup Plan*.
+- **Path**: The working directory for *Tasks*. If omitted, defaults to the current directory.
+- **ModulePath**: The directory where the *Modules* are located.
 
 ### Task Sections
-Each task is defined in its own section, specifying the module and parameters required for execution. Task sections begin with a unique custom name enclosed in brackets, which must not be reused elsewhere in the Backup Plan.
+Each *Task* is defined in its own section, specifying the *Module* and parameters required for execution. Task sections begin with a unique custom name enclosed in brackets, which must not be reused elsewhere in the *Backup Plan*.
 
-- **TaskModule**: The module to be executed for the task. This is a required parameter.
-- **TaskPath**: (Optional) The directory where the task should be executed. If specified, BisonBackup will temporarily switch to this directory during the task's execution.
-- **ARGUMENTS**: Parameters written in uppercase (e.g., `ARGUMENTS`) are custom arguments passed to the specified module. For details on a module’s parameters, refer to its documentation.
+- **TaskModule**: The *Module* to be executed for the *Task*. This is a required parameter.
+- **TaskPath**: (Optional) The directory where the *Task* should be executed. If specified, BisonBackup will temporarily switch to this directory during the *Task's* execution.
+- **ARGUMENTS**: Parameters written in uppercase (e.g., `ARGUMENTS`) are custom arguments passed to the specified *Module*. For details on a *Module’s* parameters, refer to its documentation.
 
 #### Example
+```ini
 [Plan]
 Name=Demo Plan
 Path=/home/demouser/
@@ -83,12 +88,13 @@ TaskModule=bisonbackup.general.script
 TaskPath=/home/demouser/myscripts/
 SCRIPT="mycommand.sh"
 ARGUMENTS="--myparameter=examplevalue"
+```
 
 ---
 
 ## Adding Modules
 
-*Modules* are external scripts that are organized into *Packages* and located in the directory specified by the `ModulePath` parameter in the *Backup Plan*. A package name usually combines the source of the *Package* and the packages theme (e.g., `bisonbackup.general`). Modules are executed by BisonBackup based on the task configuration defined in the Backup Plan.
+*Modules* are external scripts that are organized into *Packages* and located in the directory specified by the `ModulePath` parameter in the *Backup Plan*. A *Package* name usually combines the source of the *Package* and the *Package* theme (e.g., `bisonbackup.general`). *Modules* are executed by BisonBackup based on the *Task* configuration defined in the *Backup Plan*.
 
 ### Example Module Directory Structure
 /home/demouser/.local/bisonbackup/modules/bisonbackup.general
@@ -98,13 +104,13 @@ ARGUMENTS="--myparameter=examplevalue"
 └── remove.sh
 
 ### Module Naming Convention
-In the Backup Plan, modules are referenced using a hierarchical naming convention:  
+In the *Backup Plan*, *Modules* are referenced using a hierarchical naming convention:  
 
 **Example:** `bisonbackup.general.filelist`
 
--   **bisonbackup**: Indicates the source of the package.
--   **general**: Refers to the package containing a group of related modules.
--   **filelist**: Specifies the module itself, corresponding to the script `filelist.sh`.
+-   **bisonbackup**: Indicates the source of the *Package*.
+-   **general**: Refers to the *Package* containing a group of related *Modules*.
+-   **filelist**: Specifies the *Module* itself, corresponding to the script `filelist.sh`.
 
 ### Module Execution
 Each *Module* is executed using the parameters specified in its corresponding task section, passed as arguments in the format `SOURCE=/home/demouser/filepath DESTINATION=/home/demouser/filepath2`.
@@ -112,23 +118,23 @@ Each *Module* is executed using the parameters specified in its corresponding ta
 ### Available Module Packages
 BisonBackup's functionality is entirely provided by its *Modules*. Several "official" *Packages* are available as part of the BisonBackup project:
 
-- **bisonbackup.general:** 
-General-purpose modules for simple operations, such as running commands or handling file operations.
-- **bisonbackup.networktransfer:**
-Modules for transferring files and directories over various network protocols.
-- **bisonbackup.gitutils:**
-Modules for interacting with Git repositories.
-- **bisonbackup.borg:**
-Modules designed for handling backups using BorgBackup.
+- 🧰 **[bisonbackup.general:](https://github.com/SilverLPs/bisonbackup.general)** 
+General-purpose *Modules* for simple operations, such as running commands or handling file operations.
+- 🌏 **[bisonbackup.networktransfer:](https://github.com/SilverLPs/bisonbackup.networktransfer)**
+*Modules* for transferring files and directories over various network protocols.
+- 👾 **[bisonbackup.gitutils:](https://github.com/SilverLPs/bisonbackup.gitutils)**
+*Modules* for interacting with Git repositories.
+- 🏦 **[bisonbackup.borg:](https://github.com/SilverLPs/bisonbackup.borg)**
+*Modules* designed for handling backups using BorgBackup.
 
-These packages are currently incomplete and contain only the specific modules I have needed so far. Additional modules may be added in the future if the project evolves.
+These *Packages* are currently incomplete and contain only the specific *Modules* I have needed so far. Additional *Modules* may be added in the future if the project evolves.
 
-In addition to these official packages, I have also developed some personal module packages that are not part of the official BisonBackup project:
+In addition to these official *Packages*, I have also developed some personal module packages that are not part of the official BisonBackup project:
 
-- **silverlps.email:**
-Modules for handling email operations.
-- **silverlps.discord:**
-Modules for interacting with the Discord platform.
+- 📧 **[silverlps.email:](https://github.com/SilverLPs/silverlps.email)**
+*Modules* for handling email operations.
+- 💬 **[silverlps.discord:](https://github.com/SilverLPs/silverlps.discord)**
+*Modules* for interacting with the Discord platform.
 
 For more details on the available module packages, refer to their respective documentation.
 
@@ -137,10 +143,10 @@ For more details on the available module packages, refer to their respective doc
 ## Logging
 
 BisonBackup outputs logs directly to the console, including:
-- Start and end timestamps for tasks
-- Task names
-- Task output
-- Errors (e.g., missing modules or paths)
+- Start and end timestamps for *Tasks*
+- *Task* names
+- *Task* output
+- Errors (e.g., missing *Modules* or paths)
 
 ---
 
