@@ -12,7 +12,7 @@ This is just a personal project I worked on for my own needs. It’s definitely 
 - **Modular Design:** Integrate existing or your own script *Modules* and run them with customized parameters.
 - **Backup Plans:** Centralized `.ini` configuration files to manage *Tasks* and their execution parameters.
 - **Dynamic Task Execution:** Automatically runs *Tasks* with specified *Modules* and paths.
-- **Full Portability:** BisonBackup is entirely written in pure Bash, requiring no additional dependencies. It runs seamlessly on any system that supports the Bash shell or its syntax.
+- **Full Portability:** BisonBackup is entirely written in pure Bash, requiring no additional dependencies. It should run seamlessly on any system that supports the Bash shell or its syntax.
 - **Simplicity by Design:** Transform any Bash script into a flexible *Module* that receives parameters in a standardized argument format, as defined by the *Backup Plan*.
 
 ---
@@ -32,7 +32,7 @@ chmod +x bisonbackup.sh
 
 ---
 
-## ▶️  Usage
+## ▶️ Usage
 
 ### Basic Command
 
