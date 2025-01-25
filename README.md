@@ -2,6 +2,9 @@
 
 BisonBackup is a lightweight and modular backup script framework. It acts as a script runner that executes specified subscripts (called *Modules*) based on a user-defined configuration file (referred to as a *Backup Plan*).
 
+### IMPORTANT:
+This is just a personal project I worked on for my own needs. It’s definitely not a professional product, nor is it meant to be treated like one. I’m only sharing it in case someone else might find it useful, but please don’t expect anything close to finished, polished, or well-developed software. Make sure to read the License and Disclaimer section below in this README before even thinking about using this script or its modules.
+
 ---
 
 ## 🛠️ Key Features
