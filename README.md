@@ -98,10 +98,10 @@ ARGUMENTS="--myparameter=examplevalue"
 
 ### Example Module Directory Structure
 /home/demouser/.local/bisonbackup/modules/bisonbackup.general
-├── command.sh
-├── script.sh
-├── filelist.sh
-└── remove.sh
+-command.sh
+-script.sh
+-filelist.sh
+-remove.sh
 
 ### Module Naming Convention
 In the *Backup Plan*, *Modules* are referenced using a hierarchical naming convention:  
