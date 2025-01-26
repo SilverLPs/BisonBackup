@@ -138,6 +138,8 @@ In addition to these official *Packages*, I have also developed some personal mo
 *Modules* for handling email operations.
 - 💬 **[silverlps.discord:](https://github.com/SilverLPs/silverlps.discord)**
 *Modules* for interacting with the Discord platform.
+- ⌨️ **[silverlps.github:](https://github.com/SilverLPs/silverlps.github)**
+*Modules* for interacting with the GitHub platform.
 
 For more details on the available module packages, refer to their respective documentation.
 
